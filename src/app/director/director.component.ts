@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DataElementService } from '../data-element.service';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
@@ -9,7 +9,7 @@ import { MatTableModule } from '@angular/material/table';
 @Component({
   selector: 'app-director',
   standalone: true,
-  imports: [ MatTableModule,  MatFormFieldModule, FormsModule, CommonModule, MatListModule],
+  imports: [MatTableModule, MatFormFieldModule, FormsModule, MatListModule],
   templateUrl: './director.component.html',
   styleUrl: './director.component.css'
 })

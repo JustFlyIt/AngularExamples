@@ -3,69 +3,73 @@
   <div class="table-wrapper">
     <table mat-table class="mat-elevation-z8" [dataSource]="dataSource" >
 
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container>
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
 
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Weight </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-        </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> Weight </th>
+        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+      </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Symbol </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
 
-        <tr mat-row     
-          *matRowDef="let row; columns: displayedColumns;" [id]="row.position"
-          [ngClass]="{'selected-row': row.position === listSelectedRowId}">
-        </tr>
+      <tr mat-row
+        *matRowDef="let row; columns: displayedColumns;" [id]="row.position"
+        [ngClass]="{'selected-row': row.position === listSelectedRowId}">
+      </tr>
     </table>
   </div>
 
   <br>
-  <h1>MatList</h1>
-  <mat-list class="mat-list-wrapper border rounded py-2" id="DRSList">
-        <div *ngFor="let itemDRS of dataSource">
+    <h1>MatList</h1>
+    <mat-list class="mat-list-wrapper border rounded py-2" id="DRSList">
+      @for (itemDRS of dataSource; track itemDRS) {
+        <div>
           <div class="mat-list-item mat-elevation-z20 row border border-dark rounded py-2" [ngClass]="{'selected-row': itemDRS.position === matSelectedRowId}" id="XX1{{itemDRS.position}}">
             <div class="itemXBackground">
-            <div class="data-symbol">
-              <div class='mat-label' id="symbol1">{{itemDRS.symbol}}</div>
-            </div>
-            <div class="data-info">
-              <div class='mat-label' id="info1x{{itemDRS.position}}">{{itemDRS.position}}</div>
-              <div class='mat-label'id="info2x{{itemDRS.position}}">{{itemDRS.name}}</div>
-              <div class='mat-label' id="info3x{{itemDRS.position}}">{{itemDRS.weight}}</div>
-            </div>
+              <div class="data-symbol">
+                <div class='mat-label' id="symbol1">{{itemDRS.symbol}}</div>
+              </div>
+              <div class="data-info">
+                <div class='mat-label' id="info1x{{itemDRS.position}}">{{itemDRS.position}}</div>
+                <div class='mat-label'id="info2x{{itemDRS.position}}">{{itemDRS.name}}</div>
+                <div class='mat-label' id="info3x{{itemDRS.position}}">{{itemDRS.weight}}</div>
+              </div>
             </div>
           </div>
-      </div>
+        </div>
+      }
     </mat-list>
 
-  <br>
-  <h1>Flexbox</h1>
-  <div class="flexbox-container" id="DRSList2">
-    <div class="flexbox-item" *ngFor="let itemDRS of dataSource" id="XX2{{itemDRS.position}}" [ngClass]="{'selected-row': itemDRS.position === flexboxSelectedRowId}">
-        <div class="data-symbol">
-          <div id="symbol1">{{itemDRS.symbol}}</div>
-        </div>
-        <div class="data-info">
-          <div id="info1{{itemDRS.position}}">{{itemDRS.position}}</div>
-          <div id="info2{{itemDRS.position}}">{{itemDRS.name}}</div>
-          <div id="info3{{itemDRS.position}}">{{itemDRS.weight}}</div>
-        </div>
+    <br>
+      <h1>Flexbox</h1>
+      <div class="flexbox-container" id="DRSList2">
+        @for (itemDRS of dataSource; track itemDRS) {
+          <div class="flexbox-item" id="XX2{{itemDRS.position}}" [ngClass]="{'selected-row': itemDRS.position === flexboxSelectedRowId}">
+            <div class="data-symbol">
+              <div id="symbol1">{{itemDRS.symbol}}</div>
+            </div>
+            <div class="data-info">
+              <div id="info1{{itemDRS.position}}">{{itemDRS.position}}</div>
+              <div id="info2{{itemDRS.position}}">{{itemDRS.name}}</div>
+              <div id="info3{{itemDRS.position}}">{{itemDRS.weight}}</div>
+            </div>
+          </div>
+        }
+      </div>
     </div>
-  </div>
-</div>
