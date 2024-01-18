@@ -1,0 +1,52 @@
+  .list-wrapper.list-horizontal {
+    display: flex;
+    flex-direction: row;
+    overflow-y: auto;
+    max-height: 200px;
+    margin: 10px;
+  }
+
+  .list-wrapper.list-horizontal.mat-list-item{
+    display: flex;
+    float: right;
+    overflow-y: auto;
+  }
+
+  <button (click)="scroll(itemx)">Click to scroll</button>
+
+    cycleFlexBoxEntries(): void {
+    this.selectedRowId = 1;
+
+    let theLoop: (i: number) => void = (i: number) => {
+      setTimeout(() => {
+          const element = this.document.getElementById('XX2'+i);
+          element.scrollIntoView({ inline: 'center', behavior: 'smooth' });
+            if (i++) {
+              theLoop(i);
+          }
+      }, 1000);
+  };
+  
+  theLoop(1);
+   }
+
+
+<div class="flexbox" id="DRS">
+    <div class="itemX" *ngFor="let itemDRS of dataSource">
+      <div id="XX2{{itemDRS.position}}" class="mat-elevation-z8 border border-dark rounded py-2" [ngClass]="{'selected-row-peroidic': itemDRS.position === flexboxSelectedRowId}">
+        <div class="column" style="width:25%;>
+          <label class="border-right-1 border-info p-2" style="font-size: 40px">
+            {{itemDRS.name}}
+          </label>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="flexbox" id="DRS">
+    <div class="itemX" *ngFor="let itemDRS of dataSource">
+      <div id="XX2{{itemDRS.position}}" [ngClass]="{'selected-row': itemDRS.position === flexboxSelectedRowId}">{{itemDRS.position}}  {{itemDRS.name}}   {{itemDRS.weight}}</div>
+    </div>
+</div>
+
+

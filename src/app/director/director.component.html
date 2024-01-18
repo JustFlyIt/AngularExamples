@@ -1,0 +1,38 @@
+<div style="margin: 20px;">
+  <h1>Table Example - Pick Desired Index From Table</h1>
+  <div class="button-wrapper">
+    <input matInput type="number" matInput [(ngModel)]="listSelectedRowId">
+    <button mat-raised-button (click)="scrollToTableEntry()">Scroll to index</button>
+  </div>
+
+  <br>
+  <h1>MatList Example - Pick Desired Index from MatList</h1>
+  <div class="button-wrapper">
+    <input matInput type="number" matInput [(ngModel)]="matSelectedRowId">
+    <button mat-raised-button (click)="scrollToMatListEntry()">Scroll to index</button>
+  </div>
+  <div class="buttons-wrapper">
+    <div class="button-wrapper">
+      <button mat-raised-button1 (click)="scrollToNextMatListEntry()">Scroll To Next Entry</button>
+    </div>
+    <div class="button-wrapper">
+      <button mat-raised-button1 (click)="highlightMatListFirst()">Hightlight 1st Info</button>
+    </div>
+    <div class="button-wrapper">
+      <button mat-raised-button1 (click)="highlightMatListSecond()">Hightlight 2nd Info</button>
+    </div>
+    <div class="button-wrapper">
+      <button mat-raised-button1 (click)="hightlightMatListThird()">Hightlight 3rd Info</button>
+    </div>
+</div>
+  <br>
+  <h1>Flexbox Example - Pick Desired Index from Flexbox</h1>
+  <div class="button-wrapper">
+    <input matInput type="number" matInput [(ngModel)]="flexboxSelectedRowId">
+    <button mat-raised-button (click)="scrollToFlexBoxEntry()">Scroll to index</button>
+    <div class="button-wrapper">
+      <button mat-raised-button2 (click)="cycleFlexBoxEntries()">Start Cycle</button>
+    </div>
+    <br>
+  <br>
+</div>
