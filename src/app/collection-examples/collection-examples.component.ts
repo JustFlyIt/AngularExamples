@@ -62,8 +62,10 @@ export class CollectionExamplesComponent {
 
   scrollToMextMatListEntry() {
     this.hightLightClear();
-    this.matSelectedRowId++;
-    this.scrollToMatListEntry();
+    if (this.matSelectedRowId<ELEMENT_DATA.length) {
+      this.matSelectedRowId++;
+      this.scrollToMatListEntry();
+    }
   }
 
   scrollToMatListEntryWithIndex(index: number): void {
