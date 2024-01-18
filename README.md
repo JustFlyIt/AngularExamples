@@ -1,5 +1,18 @@
 # ListScrollExample
 
+This project was built to show methods for displaying data in three different kinds of containers:
+Table, MatList and Flexbox.  Manipulation of these containers is demonstrated in terms of scrolling 
+and display formatting.
+
+Also demonstrated is the use of service communication between components.  For this example,
+communication is between the director (controller) and the collection-examples (model and view)
+components.  The director will issue button directed commands that are integrated with the service.
+The service will issue events that are monitored by the collection-examples component; these events then direct commands in the collection-examples component.
+
+The service demonstration provides an API type of example such that the collection-examples component operations are presented by the service.
+
+Note the .css files in the example code.  These files provide formatting and display options.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
 
 ## Development server
